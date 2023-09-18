@@ -1,0 +1,66 @@
+﻿@using ETicaretMvcWebUi.Models
+@model ETicaretMvcWebUi.Models.SiparisDetay
+
+<section class="vh-100 gradient-custom-2">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-10 col-lg-8 col-xl-6">
+                <div class="card card-stepper" style="border-radius: 16px;">
+                    <div class="card-header p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <p class="text-muted mb-2"> Sipari No <span class="fw-bold text-body">@Model.SiparisNo</span></p>
+                                <p class="text-muted mb-0"> Oluşturma tarihi <span class="fw-bold text-body">@Model.Tarih</span> </p>
+                                <p class="text-muted mb-0"> Adres <span class="fw-bold text-body">@Model.Adres</span> </p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        @foreach (var item in Model.SiparisModels)
+                        {
+                            <div class="d-flex flex-row mb-4 pb-2">
+                                <div class="flex-fill">
+                                    <h5 class="bold">Ürün: @item.UrunAdi</h5>
+                                    <p class="text-muted">Miktar @item.Miktar</p>
+                                    <h4 class="mb-3">@item.Fiyat<span class="small text-muted">₺</span></h4>
+                                    <h5 class="fw-normal bt-2 mb-0"><a class="mt-3 btn btn-success" href="/Home/Detail/@item.UrunId">Görüntüle</a></h5>
+                                </div>
+                                <div>
+                                    <img class="align-self-center img-fluid"
+                                         src="~/Img/@item.UrunResmi" width="250">
+                                </div>
+                            </div>
+                        }
+                            <ul id="progressbar-1" class="mx-0 mt-0 mb-5 px-0 pt-0 pb-4">
+                                <li class="step0 active" id="step1">
+                                    @if (Model.siparisDurumu == Entities.SiparisDurumu.Bekliyor)
+                                    {
+                                        <span style="margin-left: 22px; margin-top: 12px;">Bekliyor</span>
+                                    }
+                                </li>
+                                <li class="step0 active text-center" id="step2">
+                                    @if (Model.siparisDurumu == Entities.SiparisDurumu.KargoyaVerildi)
+                                    {
+                                        <span>Kargoya Verildi</span>
+                                    }
+                                </li>
+                                <li class="step0 text-muted text-end" id="step3">
+                                    @if (Model.siparisDurumu == Entities.SiparisDurumu.Tamamlandi)
+                                    {
+                                        <span style="margin-right: 22px;">Tamamladı</span>
+                                    }
+                                </li>
+                            </ul>
+                            <div class="card-footer p-4">
+                                <div class="d-flex justify-content-center ">
+                                    <h3 class="fw-normal mb-0">Toplam Fiyat @Model.Toplam</h3>
+                                </div>
+                            </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

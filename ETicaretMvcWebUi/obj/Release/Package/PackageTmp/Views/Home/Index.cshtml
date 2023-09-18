@@ -1,0 +1,91 @@
+﻿@model ETicaretMvcWebUi.Models.AnasayfaWm
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
+        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
+    </ol>
+   
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="container">
+                <div class="row p-5">
+                    <div class="mx-auto col-md-12 col-lg-4 p-5 order-lg-last">
+                        <div class="text-align-center bg-transparent">
+                            <div class="text-align-center align-self-center mt-5 position-sticky">
+                                <h1 class="h1 text-success">Hoşgeldiniz</h1>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @foreach (var items in Model.Sliders)
+        {
+                <div class="carousel-item ">
+                    <div class="row p-5">
+
+                        <div class="col-4 m-xxl-5">
+                            <a href="@items.link" class="text-decoration-none link-dark">
+                                <h3>@items.SliderAd</h3>
+
+                                <p>@items.Aciklama.Substring(0, 200)</p>
+                            </a>
+        </div>
+                        <div class="col-6">
+                            <img class="ml-0" height="500px" src="~/Img/@items.resim" alt="yok" />
+                        </div>
+                    </div>
+                </div>
+            
+
+        }
+    </div>
+        <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+            <i class="bi bi-chevron-left"></i>
+        </a>
+        <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+            <i class="bi bi-chevron-right"></i>
+        </a>
+    </div>
+
+<section class="container py-5">
+    <div class="row text-center pt-3">
+        <div class="col-lg-6 m-auto">
+            <h1 class="h1">Kategoriler</h1>
+        </div>
+    </div>
+    <div class="row">
+        @Html.Action("_PartialView", "Home")
+    </div>
+</section>
+<section class="bg-light">
+    <div class="container py-5">
+        <div class="row">
+            @foreach (var item in Model.Urunler)
+            {
+                <div class="col-xl-3 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="~/Img/@item.UrunResmi" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li class="text-muted text-right">@item.Fiyat₺</li>
+                            </ul>
+                            <p class="h2 text-decoration-none text-dark">@item.UrunAdi</p>
+                            <p class="card-text">
+
+                                <a href="/Home/Detail/@item.Id" type="submit" class="btn btn-success">İncele</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+

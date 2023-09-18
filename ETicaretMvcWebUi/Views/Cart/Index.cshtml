@@ -1,0 +1,87 @@
+﻿@model ETicaretMvcWebUi.Models.Sepet
+@{
+    ViewBag.Title = "Index";
+}
+<div class="container pb-5">
+    <div class="row">
+        <div class="col-md-12">
+
+            <h2>Alışveriş Sepeti</h2>
+            <hr />
+
+            @if (Model.Sepettekilers.Count > 0)
+            {
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Quantity</th>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Sub Total</th>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Sepettekilers)
+                        {
+                            <tr>
+                                <td>
+                                    <img src="/Img/@item.Urun.UrunResmi" width="50" />
+                                </td>
+                                <td>
+                                    @item.Miktar
+                                </td>
+                                <td>
+                                    @item.Urun.UrunAdi
+                                </td>
+                                <td>
+                                    @item.Urun.Fiyat
+                                </td>
+                                <td>
+                                    @((item.Urun.Fiyat * item.Miktar).ToString("c"))
+                                </td>
+                                <td>
+                                    @using (Html.BeginForm("SepettenSil", "Cart"))
+                                    {
+                                        @Html.Hidden("Id", item.Urun.Id)
+                                        <button type="submit" class="btn btn-danger">
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                            Sil
+                                        </button>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5"></td>
+                            <td>
+                                @Model.Toplam().ToString("c")
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            <div class="text-center">
+                <a href="/Home/List" class="btn btn-primary">
+                    <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+                    Alışverişe Devam Et
+                </a>
+                <a href="/Cart/TeslimatDetayi" class="btn btn-primary">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    Alışverişi Tamamla
+                </a>
+            </div>
+            }
+            else
+            {
+            <div class="alert alert-warning" role="alert">
+                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                Alışveriş Sepetinizide Ürün Bulunmamaktadır.
+            </div>
+            }
+
+        </div>
+    </div>
+</div>

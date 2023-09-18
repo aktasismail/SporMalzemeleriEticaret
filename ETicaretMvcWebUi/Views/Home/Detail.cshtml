@@ -1,0 +1,70 @@
+﻿@using Entities
+@model Urun
+@{
+    ViewBag.Title = "Detail";
+}
+<link rel="stylesheet" type="text/css" href="~/source/assets/css/yorum.css" />
+<section class="bg-light">
+
+        <div class="row">
+            <div class="col-lg-4 mt-4">
+                <div class="card mb-3">
+                    <img class="card-img img-fluid" src="~/Img/@Model.UrunResmi" alt="Card image cap" id="product-detail">
+                </div>
+            </div>
+            <div class="col-lg-6 mt-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="h2">@Model.UrunAdi</h1>
+                        <p class="h3 py-2">₺@Model.Fiyat</p>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <h6>Marka:</h6>
+                            </li>
+                            <li class="list-inline-item">
+                                <p class="text-muted"><strong>@Model.Marka.MarkaAdi</strong></p>
+                            </li>
+                        </ul>
+                        <h6>Açıklama:</h6>
+                        <p>@Model.Aciklama</p>
+                        <div class="row pb-3">
+                            @if (Model.Aktifmi == true)
+                            {
+                                using (Html.BeginForm("SepeteEkle", "Cart"))
+                                {
+                                    @Html.HiddenFor(i => i.Id)
+                                    <div class="col d-grid w-50">
+                                        <button type="submit" class="btn btn-success btn-lg">Sepete Ekle <i class="bi bi-cart"></i></button>
+
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <div class="col d-grid w-25">
+                                    <a class="btn btn-danger btn-lg">Stokta Değil</a>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" W-75 text-align-center p-5">
+            <h2>Yorum Yazınız</h2>
+            <form method="post" action="/Home/YorumYapma">
+            <div class="m-4">
+
+                <input type="hidden" name="UrunId" value="@Model.Id">
+                <input type="hidden" name="Tarih" value="@DateTime.Now">
+                <input type="hidden" name="KullaniciAdi" value="@User.Identity.Name">
+                <textarea class="form-control form-control-lg " name="Yorum"></textarea>
+                <button type="submit" class="btn btn-primary mt-3 "> Yorum yap</button>
+            </div>
+            </form>
+        </div>
+
+        @Html.Action("_YorumPartialView", "Home")
+
+</section>

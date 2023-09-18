@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/source/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/source/assets/css/templatemo.css">
+    <link rel="stylesheet" href="~/source/assets/css/custom.css">
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+                Aktaş Sport
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                <div class="flex-fill">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home">Anasayfa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/About">Hakkımızda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Cart/Index">İletişim</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Cart/Index">Sepet</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="navbar align-self-center d-flex">
+                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                            <div class="input-group-text">
+                                <i class="fa fa-fw fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+                        <span class="position-absolute top-0 left-0 translate-middle badge rounded-pill bg-light text-dark">Ara</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="w-100 pt-1 mb-5 text-right">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="get" class="modal-content modal-body border-0 p-0">
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                    <button type="submit" class="input-group-text bg-success text-light">
+                        <i class="fa fa-fw fa-search text-white"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        @RenderBody()
+    </div>
+    <footer class="bg-dark w-100 position-fixed text-center">
+        <div class="container">
+            <div class="row">
+                <div class="w-100 bg-black py-3">
+                    <div class="container">
+                        <p class="text-align text-light">
+                            Copyright &copy; 2023 Aktaş Sport
+                            | Hazırlayan <a rel="sponsored" href="https://www.ismailaktas.net" target="_blank">ismailaktas.net</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/source/assets/js/jquery-1.11.0.min.js"></script>
+    <script src="/source/assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/source/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/source/assets/js/templatemo.js"></script>
+    <script src="/source/assets/js/custom.js"></script>
+</body>
+
+</html>

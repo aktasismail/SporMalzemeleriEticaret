@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ETicaretMvcWebUi.Models.AdminSiparisWm>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container m-5">
+    <h2>Siparişler</h2>
+    <hr />
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr class="table-primary">
+                <th>Sipariş Id</th>
+                <th>Sipariş numarası</th>
+                <th>Tarih</th>
+                <th>Son durum</th>
+                <th>Toplam</th>
+                <th>Miktar</th>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.SiparisNo</td>
+                    <td>@item.Tarih</td>
+                    <td>@item.SiparisDurumu</td>
+                    <td>@item.Miktar</td>
+                    <td>@item.Toplam</td>
+                    <td>
+                        @Html.ActionLink("Görüntüle", "Detaylar", new { id = @item.Id }, new { @class = "btn btn-primary" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

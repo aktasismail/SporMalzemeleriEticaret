@@ -1,0 +1,20 @@
+﻿
+    @if (Request.IsAuthenticated)
+    {
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Account">@User.Identity.Name</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Account/Logout">Çıkış Yap</a>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link" href="/Account/GirisYap">Giriş</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Account/KayitOlma">Kayıt</a>
+        </li>
+    }

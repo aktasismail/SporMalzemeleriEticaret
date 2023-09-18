@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Entities.Urun>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<p>
+    @Html.ActionLink("Yeni Ekle", "Ekleme", null, new { @class = "btn btn-info" })
+</p>
+<table class="table table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Kategori.KategoriAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marka.MarkaAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrunAdi)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aktifmi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.StokMiktari)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.UrunResmi)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kategori.KategoriAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marka.MarkaAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrunAdi)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Tarih)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aktifmi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fiyat)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.StokMiktari)
+            </td>
+
+            <td>
+                <img src="~/Img/@Html.DisplayFor(modelItem => item.UrunResmi)" alt="" height="40" />
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Duzenle", new { id = item.Id }, new { @class = "btn btn-sm btn-primary" }) |
+
+                @Html.ActionLink("Sil", "Silme", new { id = item.Id }, new { @class = "btn btn-sm btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+

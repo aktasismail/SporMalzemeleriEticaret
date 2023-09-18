@@ -1,0 +1,56 @@
+﻿@model Entities.Kategori
+
+@{
+    ViewBag.Title = "Silme";
+}
+
+
+<div class="container m-5">
+    <h2>Silmek istediğinizden emin misiniz?</h2>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Gorsel)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Gorsel)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.KategoriAdi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KategoriAdi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Tarih)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tarih)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Akifmi)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Akifmi)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Sil" class="btn btn-danger" /> |
+               <a class="btn btn-primary" href="/Admin/Kategori/Index">Listeye Dön</a>
+            </div>
+        }
+    </div>
+</div>

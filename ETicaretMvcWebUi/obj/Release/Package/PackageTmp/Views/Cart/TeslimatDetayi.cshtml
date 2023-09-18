@@ -1,0 +1,67 @@
+﻿@model ETicaretMvcWebUi.Models.TeslimatDetay
+
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
+        <h2>Sipariş Bilgileriniz</h2>
+        <p>Lütfen sipariş bilgilerinizi doldurunuz.</p>
+        <hr />
+
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Kullanıcı Adı</label>
+                <div class="col-sm-6">
+                    <span style="color:red;" class="badge-danger">
+                        @User.Identity.Name
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 m-1 col-form-label">Adres Tanımı</label>
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 m-1 col-form-label">Adres</label>
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(x => x.Adres, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 m-1 col-form-label">Şehir</label>
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(x => x.Sehir, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 m-1 col-form-label">Posta Kodu</label>
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(x => x.PostaKodu, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 m-3 col-form-label"></label>
+                <div class="col-sm-6">
+                    <button type="submit" class="btn btn-primary">Devam Et</button>
+                </div>
+            </div>
+
+        }
+
+    </div>
+</div>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

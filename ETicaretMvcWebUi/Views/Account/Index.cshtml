@@ -1,0 +1,41 @@
+﻿@model IEnumerable < ETicaretMvcWebUi.Models.VerilenSiparisler>
+<div class="container m-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Sipariş Bilgileriniz</h2>
+            <hr />
+
+            <table class="table">
+                <thead>
+                    <tr class="table-primary"> 
+                        <th>Sipariş no</th>
+                        <th>Tarih</th>
+                        <th>Toplam</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.SiparisNo</td>
+                            <td>@item.Tarih.ToShortDateString()</td>
+                            <td>
+                                <i class="fa fa-try" aria-hidden="true"></i>
+                                @item.Toplam
+                            </td>
+                            <td>@item.siparisDurumu</td>
+                            <td>
+                                @Html.ActionLink("Görüntüle", "Details", new { id = @item.Id }, new { @class = "btn btn-primary" })
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

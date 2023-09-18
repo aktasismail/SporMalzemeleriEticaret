@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Entities.Kategori>
+@foreach (var item in Model)
+{
+    <div class="col-12 col-md-4 p-5 mt-3">
+        <a href="#"><img src="~/Img/@item.Gorsel" class="rounded-circle img-fluid border"></a>
+        <h5 class="text-center mt-3 mb-3">@item.KategoriAdi</h5>
+        <p class="text-center"><a class="btn btn-success" href="/Home/Kategori/@item.Id">Görüntüle</a></p>
+    </div>
+    
+}

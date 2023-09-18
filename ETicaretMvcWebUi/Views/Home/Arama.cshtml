@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Entities.Urun>
+
+@{
+    ViewBag.Title = "Kategori";
+}
+
+<div class="container m-5">
+    @if (Model.Count() > 0)
+    {
+        <div class="row text-center">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4">
+                    <img src="~/Img/@item.UrunResmi" alt="" height="200" />
+                    <h2>@item.UrunAdi</h2>
+                    <p>@item.Aciklama.Substring(0,100) ...</p>
+                    <p><a class="btn btn-success" href="/Home/Detail/@item.Id">İncele</a></p>
+                </div>}
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning text-center">
+            Herhangi bir ürün bulunmamaktadır...
+        </div>
+    }
+</div>

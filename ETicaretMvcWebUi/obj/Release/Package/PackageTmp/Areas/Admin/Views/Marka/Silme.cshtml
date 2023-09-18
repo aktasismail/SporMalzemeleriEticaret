@@ -1,0 +1,55 @@
+﻿@model Entities.Marka
+
+@{
+    ViewBag.Title = "Silme";
+}
+<div class="container m-5">
+    <h2>Silmek istediğinize emin misiniz?</h2>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MarkaAdi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MarkaAdi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MarkaAciklama)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MarkaAciklama)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Tarih)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tarih)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Akifmi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Akifmi)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Sil" class="btn btn-danger" /> |
+                @Html.ActionLink("Listeye dön", "Index", null, new { @class = "btn btn-sm btn-primary" })
+            </div>
+        }
+    </div>
+</div>

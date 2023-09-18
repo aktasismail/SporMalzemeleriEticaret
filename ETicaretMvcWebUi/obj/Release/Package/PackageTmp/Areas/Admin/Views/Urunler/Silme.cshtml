@@ -1,0 +1,112 @@
+﻿@model Entities.Urun
+
+@{
+    ViewBag.Title = "Silme";
+}
+<h3>Kaydı silmek istediğinize emin misiniz?</h3>
+<div>
+    <h4>Ürün Bilgileri</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Kategori.KategoriAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kategori.KategoriAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Marka.MarkaAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marka.MarkaAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tarih)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aktifmi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aktifmi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kdv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kdv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StokMiktari)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StokMiktari)
+        </dd>
+
+        S
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToptanFiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToptanFiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunResmi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunResmi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Listeye Dön", "Index")
+        </div>}
+</div>
+

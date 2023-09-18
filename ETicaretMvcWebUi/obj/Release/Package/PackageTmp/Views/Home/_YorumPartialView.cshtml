@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Entities.Yorumlar>
+
+<div class="container">
+    <h3>
+        <i class="bi bi-chat-right-text"></i>
+        Yorumlar
+    </h3>
+    <hr />@foreach (var item in Model)
+    {
+        <div class="border border-primary rounded p-3 m-3 px-5">
+            <h4 class="d-inline-flex mx-5 "> @item.KullaniciAdi</h4><h6 class="d-inline-flex mx-5">@item.Tarih</h6>
+
+            <p class="W-100">@item.Yorum </p>
+        </div>
+    }
+</div>
+
